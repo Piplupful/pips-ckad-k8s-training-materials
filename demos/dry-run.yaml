@@ -1,0 +1,25 @@
+# kubectl create deploy deploy1 --image=nginx --dry-run=client -o yaml > dry-run.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy1
+  name: deploy1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy1
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}

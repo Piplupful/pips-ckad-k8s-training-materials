@@ -1,2 +1,2 @@
-# pips-ckad-k8s-training-materials
+# ckad k8s Training Materials
 Course taught by Damian Igbe, PhD
