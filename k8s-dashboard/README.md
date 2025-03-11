@@ -12,3 +12,6 @@ kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy
 
 # View Dashboard
 Dashboard available through: https://localhost:8443/
+
+#Create Service Account
+[Create a Service Account](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
