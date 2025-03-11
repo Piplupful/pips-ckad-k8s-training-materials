@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes: #ReadWriteOnce (RWO),
+  # ReadOnlyMany (ROX), ReadWriteMany (RWX)
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  #storageClassName: standard
+  # Retain, if PVC deleted, PV not deleted.
+  # nDelete, if PVC deleted, PV deleted.
+  # Recycle, PV scrubbed and made available for reuse/deleted.
+  # persistentVolumeReclaimPolicy: Retain
