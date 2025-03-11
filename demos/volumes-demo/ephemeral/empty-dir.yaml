@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ephemeral-volume-example
+spec:
+  containers:
+    - name: main-container
+      image: nginx:1.26
+      #Do 'k exec ephemeral-volume-example -- ls /data'
+      # to see hello.txt
+      command: ["sh", "-c", "echo 'Hello World' > /data/hello.txt; sleep 3600"]
+      volumeMounts: 
+        - mountPath: /data
+          name: emptydir-volume
+  volumes:
+    - name: emptydir-volume
+      emptyDir: {}
