@@ -2,3 +2,12 @@
 demos/ckad-exercises/*
 */ckad-exercises/*
 demos/ckad-exercises
+
+#Guestbook demo
+# tar -xf guestbook1.tar in guestbook-svc-demo
+# to get the demo files
+*/guestbook/*
+/guestbook/*
+/guestbook/
+demos/guestbook-svc-demo/guestbook/*
+demos/guestbook-svc-demo/guestbook/
