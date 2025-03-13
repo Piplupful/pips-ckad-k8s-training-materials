@@ -11,3 +11,13 @@ demos/ckad-exercises
 /guestbook/
 demos/guestbook-svc-demo/guestbook/*
 demos/guestbook-svc-demo/guestbook/
+
+#Secrets and SOPS/AGE Lab stuff
+*.key
+*.tkn
+*.token
+*/key.txt
+demos/sops-age-demo/key.txt
+db-password.*
+demos/sops-age-demo/secret.yaml
+demos/sops-age-demo/secret-encrypted.yaml

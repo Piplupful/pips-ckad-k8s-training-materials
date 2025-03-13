@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secret-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secret-app
+  template:
+    metadata:
+      labels:
+        app: secret-app
+    spec:
+      containers:
+      - name: secret-app
+        image: nginx
+        env:
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-password
+                key: db-password.txt.age
