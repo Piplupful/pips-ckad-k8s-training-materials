@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-env-example
+spec:
+  containers:
+    - name: my-container
+      image: nginx
+      # Inject values are ENV VARS
+      envFrom:
+        - configMapRef:
+            name: my-config
