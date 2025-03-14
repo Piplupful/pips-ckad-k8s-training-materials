@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rollout-nginx
+  name: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rollout-nginx
+  strategy:
+    RollingUpdate:
+  template:
+    metadata:
+      labels:
+        app: rollout-nginx
+    spec:
+      containers:
+      - name: my-app
+        # start with nginx:latest, change to nginx:1.19
+        # apply
+        # watch rollout with k get po --watch
+        # verify with k describe po po-name
+        image: nginx:1.19
+        ports:
+        - containerPort: 80
+          name: my-service
+---
+#ClusterIP default
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: rollout-nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9376
