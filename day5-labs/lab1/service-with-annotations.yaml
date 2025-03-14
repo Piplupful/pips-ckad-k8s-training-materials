@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: annotated-service
+  annotations:
+    description: "This is a service with annotations"
+    team: "dev-ops"
+    purpose: "Expose nginx pod to the internet"
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+

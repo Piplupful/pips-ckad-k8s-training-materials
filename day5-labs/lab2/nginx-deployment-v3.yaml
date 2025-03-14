@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  annotations:
+    version-history: "v1.0.0,v2.0.0,v3.0.0"
+    version: "v3.0.0"
+    description: "Updated nginx deployment to v3"
+    updated-at: "{{timestamp}}"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.21.0
+          ports:
+            - containerPort: 80
+
