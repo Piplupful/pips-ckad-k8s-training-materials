@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: backup-job
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: busybox:latest
+        command: [ "/bin/echo" ]
+        args: [ "Backup Complete" ]
+        name: backup-job
+        resources: {}
+      restartPolicy: Never
+status: {}
+---
+# https://crontab.guru/ to figure out scheduler
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: backup-cron-job
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: busybox:latest
+            command: [ "/bin/echo" ]
+            args: [ "Backup Complete" ]
+            name: backup-job
+            resources: {}
+          restartPolicy: OnFailure
+status: {}

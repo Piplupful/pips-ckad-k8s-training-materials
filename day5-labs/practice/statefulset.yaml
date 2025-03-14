@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-statefulset
+  name: my-statefulset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-statefulset
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-statefulset
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+        resources: {}
+        volumeMounts:
+        - name: disk-ssd
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: disk-ssd
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi
+status: {}
