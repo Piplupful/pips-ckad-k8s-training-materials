@@ -21,3 +21,11 @@ demos/sops-age-demo/key.txt
 db-password.*
 demos/sops-age-demo/secret.yaml
 demos/sops-age-demo/secret-encrypted.yaml
+
+#VSCode
+*.code-workspace
+
+#Practice
+*/practice/*
+/practice/*
+/practice/
